@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inscripciones oficiales de Fighting Fury League para torneos y temporadas competitivas.">
+  <title>Fighting Fury League | Inscripciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell"></div>
+  <header class="hero">
+    <div class="hero__backdrop"></div>
+    <div class="container hero__content">
+      <div class="brand-card">
+        <div class="brand-logo" aria-label="Escudo de Fighting Fury League">
+          <img src="assets/logo-ffa-mark.png" alt="Logo Fighting Fury League">
+        </div>
+        <div class="brand-copy">
+          <p class="eyebrow">Fighting Fury League</p>
+          <img class="brand-wordmark" src="assets/logo-ffa-wordmark.png" alt="Fighting Fury League wordmark">
+          <h1>Página Oficial de Inscripciones</h1>
+          <p class="hero__copy">
+            Reserva tu lugar para la próxima batalla, sube tu comprobante y sigue tu estado competitivo en tiempo real.
+          </p>
+        </div>
+      </div>
+      <div class="hero__stats">
+        <div class="stat-card">
+          <span class="stat-card__label">Temporada</span>
+          <strong>Season 3</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Juego</span>
+          <strong>Street Fighter 6</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="panel form-panel" aria-labelledby="form-title">
+      <div class="panel__heading">
+        <p class="eyebrow">Registro oficial</p>
+        <h2 id="form-title">Formulario de Inscripción</h2>
+        <p>Completa tu ficha de jugador para entrar al ecosistema competitivo de Fighting Fury League.</p>
+      </div>
+
+      <div id="statusMessage" class="alert hidden" role="alert" aria-live="polite"></div>
+
+      <form id="registrationForm" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span>Nombre completo *</span>
+            <input id="fullName" name="fullName" type="text" maxlength="100" autocomplete="name" required>
+            <small class="field__error"></small>
+          </label>
+
+          <label class="field">
+            <span>Nick o Gamertag *</span>
+            <input id="nickname" name="nickname" type="text" maxlength="40" autocomplete="nickname" required>
+            <small class="field__error"></small>
+          </label>
+
+          <label class="field">
+            <span>CFN *</span>
+            <input id="cfn" name="cfn" type="text" maxlength="30" required>
+            <small class="field__error"></small>
+          </label>
+
+          <label class="field">
+            <span>Número celular *</span>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" maxlength="20" required>
+            <small class="field__error"></small>
+          </label>
+
+          <label class="field field--full">
+            <span>Equipo competitivo</span>
+            <input id="team" name="team" type="text" maxlength="60">
+            <small class="field__error"></small>
+          </label>
+
+          <label class="field field--full">
+            <span>Comprobante de pago *</span>
+            <input id="receipt" name="receipt" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required>
+            <small class="field__hint">Formatos permitidos: JPG, JPEG, PNG, WEBP. Máximo 5 MB.</small>
+            <small class="field__error"></small>
+          </label>
+        </div>
+
+        <div id="previewWrapper" class="preview hidden">
+          <img id="previewImage" alt="Vista previa del comprobante">
+        </div>
+
+        <div class="form-actions">
+          <button id="submitButton" class="button button--primary" type="submit">
+            <span class="button__label">Registrar inscripción</span>
+            <span class="button__loader hidden"></span>
+          </button>
+          <p class="form-note">Tu registro entra en revisión y aparece en la tabla pública con estado inicial pendiente.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list-panel" aria-labelledby="list-title">
+      <div class="panel__heading panel__heading--inline">
+        <div>
+          <p class="eyebrow">Roster público</p>
+          <h2 id="list-title">Jugadores Confirmados</h2>
+        </div>
+        <div class="counter-card">
+          <span>Total en roster</span>
+          <strong id="totalCount">0</strong>
+        </div>
+      </div>
+
+      <div class="search-grid">
+        <label class="field">
+          <span>Buscar por Nick</span>
+          <input id="searchNickname" type="search" placeholder="Ej. RyuMaster">
+        </label>
+        <label class="field">
+          <span>Buscar por CFN</span>
+          <input id="searchCfn" type="search" placeholder="Ej. CFN-001">
+        </label>
+      </div>
+
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th>Nick</th>
+              <th>CFN</th>
+              <th>Equipo</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="playersTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="emptyState" class="empty-state hidden">
+        No hay resultados para la búsqueda actual.
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
