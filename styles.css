@@ -985,3 +985,28 @@ tbody tr:hover {
     font-size: 0.95rem;
   }
 }
+/* ==============================
+   Recordatorio de comprobante
+============================== */
+
+.payment-reminder{
+  margin-top:18px;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,184,77,.35);
+  background:rgba(255,184,77,.08);
+}
+
+.payment-reminder strong{
+  display:block;
+  margin-bottom:8px;
+  color:#ffb84d;
+  font-family:"Orbitron",sans-serif;
+  font-size:.85rem;
+}
+
+.payment-reminder p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+}
