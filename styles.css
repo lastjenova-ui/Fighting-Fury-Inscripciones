@@ -765,8 +765,9 @@ tbody tr:hover {
 }
 
 .league-board__identity img {
-  width: min(100%, 290px);
-  max-height: 74px;
+  width: auto;
+  height: 90px;
+  max-width: 100%;
   object-fit: contain;
   object-position: left center;
 }
