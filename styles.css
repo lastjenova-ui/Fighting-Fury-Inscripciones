@@ -46,10 +46,61 @@ body {
   margin: 0 auto;
 }
 
+.site-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.site-nav__link {
+  padding: 8px 13px;
+  border: 1px solid rgba(184, 191, 209, 0.2);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.site-nav__link:hover,
+.site-nav__link.is-active {
+  color: var(--text);
+  border-color: rgba(255, 106, 61, 0.5);
+  background: rgba(255, 49, 95, 0.12);
+}
+
 .hero {
   position: relative;
   overflow: hidden;
   padding: 36px 0 24px;
+}
+
+.standings-hero {
+  position: relative;
+  z-index: 1;
+  padding: 28px 0 34px;
+}
+
+.standings-hero__heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.standings-hero__heading img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 26px rgba(255, 49, 95, 0.22));
+}
+
+.standings-hero__heading p:not(.eyebrow) {
+  margin: 10px 0 0;
+  color: var(--muted);
 }
 
 .hero__backdrop {
@@ -424,6 +475,218 @@ tbody tr:hover {
   display: none !important;
 }
 
+.league-section {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 48px;
+}
+
+.league-section__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin: 6px 0 18px;
+}
+
+.league-section__heading p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.league-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.league-tab {
+  border: 1px solid rgba(184, 191, 209, 0.25);
+  border-radius: 999px;
+  padding: 11px 16px;
+  color: var(--muted);
+  background: rgba(9, 13, 23, 0.72);
+  font: 600 0.88rem "Barlow", sans-serif;
+  cursor: pointer;
+  transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.league-tab:hover {
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.league-tab.is-active {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.34);
+  background: linear-gradient(135deg, rgba(255, 49, 95, 0.46), rgba(255, 106, 61, 0.28));
+}
+
+.league-board {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid rgba(113, 129, 171, 0.22);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(12, 16, 28, 0.98), rgba(16, 18, 31, 0.9));
+  box-shadow: var(--shadow);
+  animation: rise 0.45s ease;
+}
+
+.league-board--master {
+  --league-color: #21e796;
+  border-color: rgba(33, 231, 150, 0.3);
+  background: linear-gradient(135deg, rgba(33, 231, 150, 0.11), transparent 34%), linear-gradient(145deg, rgba(12, 22, 28, 0.98), rgba(11, 20, 25, 0.92));
+}
+
+.league-board--diamond {
+  --league-color: #f14eff;
+  border-color: rgba(241, 78, 255, 0.3);
+  background: linear-gradient(135deg, rgba(241, 78, 255, 0.1), transparent 34%), linear-gradient(145deg, rgba(25, 12, 28, 0.98), rgba(24, 14, 30, 0.92));
+}
+
+.league-board__watermark {
+  position: absolute;
+  top: 50%;
+  right: -70px;
+  width: min(46%, 460px);
+  transform: translateY(-40%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.league-board__identity,
+.groups-grid,
+.league-legend {
+  position: relative;
+  z-index: 1;
+}
+
+.league-board__identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.league-board__identity img {
+  width: min(100%, 290px);
+  max-height: 74px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.league-board__identity p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.group-card {
+  overflow: hidden;
+  border: 1px solid rgba(184, 191, 209, 0.14);
+  border-top: 3px solid var(--league-color);
+  border-radius: 16px;
+  background: rgba(7, 10, 18, 0.66);
+}
+
+.group-card h3 {
+  margin: 0;
+  padding: 12px 16px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.group-card__table-shell {
+  overflow-x: auto;
+}
+
+.standings-table {
+  width: 100%;
+  min-width: 340px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.standings-table th,
+.standings-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(184, 191, 209, 0.1);
+}
+
+.standings-table th {
+  font-family: "Barlow", sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
+.standings-table th:not(:nth-child(2)),
+.standings-table td:not(:nth-child(2)) {
+  text-align: center;
+}
+
+.standings-table td:nth-child(2) {
+  font-weight: 600;
+}
+
+.standing-row {
+  --status-color: var(--muted);
+}
+
+.standing-row--qualify { --status-color: #19d98b; background: rgba(25, 217, 139, 0.08); }
+.standing-row--playoff { --status-color: #5a91ff; background: rgba(90, 145, 255, 0.08); }
+.standing-row--stay { --status-color: #ffb84d; background: rgba(255, 184, 77, 0.08); }
+.standing-row--drop { --status-color: #ff5c7c; background: rgba(255, 92, 124, 0.08); }
+
+.standing-status i,
+.legend-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--status-color);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--status-color) 66%, transparent);
+}
+
+.league-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.league-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-dot--qualify { --status-color: #19d98b; }
+.legend-dot--playoff { --status-color: #5a91ff; }
+.legend-dot--stay { --status-color: #ffb84d; }
+.legend-dot--drop { --status-color: #ff5c7c; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -458,6 +721,12 @@ tbody tr:hover {
   .brand-card {
     flex-direction: column;
   }
+
+  .league-section__heading,
+  .league-board__identity {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 640px) {
@@ -482,6 +751,28 @@ tbody tr:hover {
 
   .brand-wordmark {
     width: min(100%, 420px);
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+
+  .standings-hero__heading {
+    align-items: flex-start;
+  }
+
+  .league-board {
+    padding: 20px;
+  }
+
+  .groups-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .league-board__watermark {
+    width: 76%;
+    right: -90px;
+    opacity: 0.06;
   }
 
   th,

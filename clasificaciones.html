@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clasificaciones y grupos round robin de Fighting Fury League.">
+  <title>Fighting Fury League | Clasificaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell"></div>
+  <header class="standings-hero">
+    <div class="container">
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a class="site-nav__link" href="index.html">Inscripciones</a>
+        <a class="site-nav__link is-active" href="clasificaciones.html" aria-current="page">Clasificaciones</a>
+      </nav>
+      <div class="standings-hero__heading">
+        <img src="assets/logo-ffa-mark.png" alt="Fighting Fury League">
+        <div>
+          <p class="eyebrow">Fighting Fury League · Season 3</p>
+          <h1>Fase de Grupos</h1>
+          <p>Clasificaciones round robin: cada jugador se enfrenta a todos los rivales de su grupo.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container league-section" id="clasificaciones" aria-labelledby="league-title">
+    <div class="league-section__heading">
+      <div>
+        <p class="eyebrow">Temporada competitiva</p>
+        <h2 id="league-title">Clasificaciones</h2>
+      </div>
+      <div class="league-tabs" role="tablist" aria-label="Seleccionar liga">
+        <button class="league-tab is-active" id="masterTab" type="button" role="tab" aria-selected="true" aria-controls="masterLeague" data-league-tab="master">Liga MÃ¡ster</button>
+        <button class="league-tab" id="diamondTab" type="button" role="tab" aria-selected="false" aria-controls="diamondLeague" data-league-tab="diamond">Liga Diamante</button>
+      </div>
+    </div>
+
+    <section class="league-board league-board--master is-active" id="masterLeague" role="tabpanel" aria-labelledby="masterTab" data-league-panel="master">
+      <img class="league-board__watermark" src="assets/master-emblem.png" alt="" aria-hidden="true">
+      <div class="league-board__identity"><img src="assets/liga-master.png" alt="Liga MÃ¡ster"><p>Round robin · ClasificaciÃ³n a la fase final</p></div>
+      <div id="masterGroups" class="groups-grid" aria-live="polite"></div>
+      <div class="league-legend" aria-label="Estados de clasificaciÃ³n de Liga MÃ¡ster"><span><i class="legend-dot legend-dot--qualify"></i>Clasifica a la final</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece</span><span><i class="legend-dot legend-dot--drop"></i>Desciende a Diamante</span></div>
+    </section>
+
+    <section class="league-board league-board--diamond" id="diamondLeague" role="tabpanel" aria-labelledby="diamondTab" data-league-panel="diamond" hidden>
+      <img class="league-board__watermark" src="assets/diamante-emblem.png" alt="" aria-hidden="true">
+      <div class="league-board__identity"><img src="assets/liga-diamante.png" alt="Liga Diamante"><p>Round robin · ClasificaciÃ³n y ascenso</p></div>
+      <div id="diamondGroups" class="groups-grid" aria-live="polite"></div>
+      <div class="league-legend" aria-label="Estados de clasificaciÃ³n de Liga Diamante"><span><i class="legend-dot legend-dot--qualify"></i>Asciende a MÃ¡ster</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece en Diamante</span><span><i class="legend-dot legend-dot--drop"></i>Desciende a Platino</span></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
