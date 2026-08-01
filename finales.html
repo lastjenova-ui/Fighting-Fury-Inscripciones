@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bracket de finales de Liga Master de Fighting Fury League.">
+  <title>Fighting Fury League | Finales Master</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell"></div>
+  <header class="standings-hero finals-hero">
+    <div class="container">
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a class="site-nav__link" href="index.html">Inscripciones</a>
+        <a class="site-nav__link" href="clasificaciones.html">Clasificaciones</a>
+        <a class="site-nav__link is-active" href="finales.html" aria-current="page">Finales</a>
+      </nav>
+      <div class="standings-hero__heading">
+        <img src="logo-ffa-mark.png" alt="Fighting Fury League">
+        <div>
+          <p class="eyebrow">Fighting Fury League - Season 3</p>
+          <h1>Finales Master</h1>
+          <p>Bracket de eliminacion directa de la Liga Master.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container finals-section">
+    <section class="finals-board" aria-labelledby="finals-title">
+      <img class="finals-board__watermark" src="master-emblem.png" alt="" aria-hidden="true">
+      <div class="finals-board__heading">
+        <div>
+          <p class="eyebrow">Liga Master</p>
+          <h2 id="finals-title">Camino al Campeonato</h2>
+        </div>
+        <img src="liga-master.png" alt="Liga Master">
+      </div>
+      <div id="masterBracket" class="bracket-scroll" aria-label="Bracket de Finales Master"></div>
+    </section>
+
+    <section class="finals-notes" aria-label="Reglas de Finales Master">
+      <div class="finals-note finals-note--qualify">
+        <h3>Clasificacion</h3>
+        <p><strong>Primeros de grupo:</strong> avanzan directamente a Ronda 2.</p>
+        <p><strong>Segundos y terceros:</strong> empiezan en Ronda 1.</p>
+      </div>
+      <div class="finals-note finals-note--format">
+        <h3>Formatos de juego</h3>
+        <p><strong>FT5:</strong> primero en llegar a 5 victorias.</p>
+        <p><strong>FT7:</strong> primero en llegar a 7 victorias.</p>
+        <p><strong>FT10:</strong> primero en llegar a 10 victorias.</p>
+      </div>
+      <div class="finals-note finals-note--structure">
+        <h3>Ruta del bracket</h3>
+        <p>Ronda 1: FT5 · Ronda 2 y semifinales: FT7 · Gran Final: FT10.</p>
+      </div>
+    </section>
+  </main>
+  <script src="finales.js"></script>
+</body>
+</html>
