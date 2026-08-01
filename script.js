@@ -22,88 +22,8 @@ let allPlayers = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
-  initLeagueStandings();
   loadPlayers();
 });
-
-function initLeagueStandings() {
-  const leagueGroups = {
-    master: createGroups(["Ryu", "Ken", "Chun-Li", "Guile", "Juri", "Cammy"]),
-    diamond: createGroups(["Akuma", "Luke", "Jamie", "Manon", "Marisa", "Dee Jay"])
-  };
-
-  Object.entries(leagueGroups).forEach(([league, groups]) => {
-    const container = document.getElementById(`${league}Groups`);
-    if (container) {
-      container.innerHTML = groups.map(renderGroupTable).join("");
-    }
-  });
-
-  document.querySelectorAll("[data-league-tab]").forEach((tab) => {
-    tab.addEventListener("click", () => setActiveLeague(tab.dataset.leagueTab));
-  });
-}
-
-function createGroups(names) {
-  return ["A", "B", "C", "D"].map((letter, groupIndex) => ({
-    letter,
-    players: names.map((name, index) => ({
-      name: groupIndex === 0 ? name : `${name} ${groupIndex + 1}`,
-      played: 5,
-      points: 15 - index * 3,
-      status: ["qualify", "playoff", "stay", "stay", "drop", "drop"][index]
-    }))
-  }));
-}
-
-function renderGroupTable(group) {
-  return `
-    <article class="group-card">
-      <h3>Grupo ${group.letter}</h3>
-      <div class="group-card__table-shell">
-        <table class="standings-table">
-          <thead>
-            <tr><th>#</th><th>Jugador</th><th>PJ</th><th>PTS</th><th><span class="sr-only">Estado</span></th></tr>
-          </thead>
-          <tbody>
-            ${group.players.map((player, index) => `
-              <tr class="standing-row standing-row--${player.status}">
-                <td>${index + 1}</td>
-                <td>${escapeHtml(player.name)}</td>
-                <td>${player.played}</td>
-                <td>${player.points}</td>
-                <td><span class="standing-status"><i></i><span class="sr-only">${getStatusLabel(player.status)}</span></span></td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-      </div>
-    </article>
-  `;
-}
-
-function getStatusLabel(status) {
-  return {
-    qualify: "Clasifica",
-    playoff: "Play-offs",
-    stay: "Permanece",
-    drop: "Desciende"
-  }[status];
-}
-
-function setActiveLeague(league) {
-  document.querySelectorAll("[data-league-tab]").forEach((tab) => {
-    const isActive = tab.dataset.leagueTab === league;
-    tab.classList.toggle("is-active", isActive);
-    tab.setAttribute("aria-selected", String(isActive));
-  });
-
-  document.querySelectorAll("[data-league-panel]").forEach((panel) => {
-    const isActive = panel.dataset.leaguePanel === league;
-    panel.classList.toggle("is-active", isActive);
-    panel.hidden = !isActive;
-  });
-}
 
 function bindEvents() {
   form.addEventListener("submit", handleSubmit);
