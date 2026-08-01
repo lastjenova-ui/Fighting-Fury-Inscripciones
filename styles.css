@@ -208,7 +208,7 @@ h1 {
 
 .hero__stats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-top: 18px;
 }
@@ -224,6 +224,26 @@ h1 {
 .stat-card strong,
 .counter-card strong {
   font-family: "Orbitron", sans-serif;
+}
+
+.stat-card--price strong{
+  display:flex;
+  align-items:flex-end;
+  gap:.4rem;
+  color:var(--accent);
+  font-size:1.35rem;
+}
+
+.stat-card--price strong small{
+  font-size:.72rem;
+  color:var(--warning);
+  font-family:"Barlow",sans-serif;
+}
+
+.stat-card--price p{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:.82rem;
 }
 
 .stat-card__label,
