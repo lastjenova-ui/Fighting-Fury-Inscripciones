@@ -184,13 +184,8 @@ async function loadPlayers(scrollToList = false) {
   }
 
   try {
-    const response = await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-      body: JSON.stringify({ action: "list" })
-    });
+    // Se cambia de POST a GET pasando ?action=list en la URL
+    const response = await fetch(`${APPS_SCRIPT_URL}?action=list`, { cache: "no-store" });
     const result = await response.json();
 
     if (!response.ok || !result.success) {
@@ -201,13 +196,15 @@ async function loadPlayers(scrollToList = false) {
     renderFilteredPlayers();
 
     if (scrollToList) {
-      document.getElementById("list-title").scrollIntoView({ behavior: "smooth", block: "start" });
+      const listTitle = document.getElementById("list-title");
+      if (listTitle) {
+        listTitle.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   } catch (error) {
     showMessage("La inscripción se guardó, pero no fue posible refrescar la lista pública.", "error");
   }
 }
-
 function renderFilteredPlayers() {
   const nicknameTerm = sanitizeText(searchNickname.value).toLowerCase();
   const cfnTerm = sanitizeText(searchCfn.value).toLowerCase();
