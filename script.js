@@ -1,5 +1,5 @@
 // Reemplaza esta URL por la del despliegue Web App de Google Apps Script.
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLwY8_7EGpI7K4eEJ_WVfMjZeEmGi6WhUgPbi8GgFmzSTb3jLACTZNf5Dby4p3dJoU/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOpI-cPFlS5Qgfmfk7yXVGHHp5AxLbWaF3LRpMdMFS3jIqpkWPgtLKRYjRrNQ8qUJS/exec";
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"];
 const PHONE_REGEX = /^\+?\d{7,15}$/;
