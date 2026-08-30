@@ -76,7 +76,8 @@ async function handleSubmit(event) {
       headers: {
         "Content-Type": "text/plain;charset=utf-8"
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      redirect: "follow" // <--- PERMITE PROCESAR LA REDIRECCIÓN DE GOOGLE APPS SCRIPT
     });
 
     const result = await response.json();
