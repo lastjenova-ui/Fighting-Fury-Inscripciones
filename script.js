@@ -213,12 +213,8 @@ function renderFilteredPlayers() {
   const cfnTerm = sanitizeText(searchCfn.value).toLowerCase();
 
   const filtered = allPlayers.filter((player) => {
-    const nickname = String(player.nickname || "").toLowerCase();
-    const cfn = String(player.cfn || "").toLowerCase();
-
-    const byNick = nickname.includes(nicknameTerm);
-    const byCfn = cfn.includes(cfnTerm);
-
+    const byNick = player.nickname.toLowerCase().includes(nicknameTerm);
+    const byCfn = player.cfn.toLowerCase().includes(cfnTerm);
     return byNick && byCfn;
   });
 

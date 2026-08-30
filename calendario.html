@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendario de enfrentamientos de Fighting Fury League.">
+  <title>Fighting Fury League | Calendario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell"></div>
+  <header class="standings-hero">
+    <div class="container">
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a class="site-nav__link" href="index.html">Inscripciones</a>
+        <a class="site-nav__link" href="clasificaciones.html">Clasificaciones</a>
+        <a class="site-nav__link" href="finales.html">Finales</a>
+        <a class="site-nav__link is-active" href="calendario.html" aria-current="page">Calendario</a>
+      </nav>
+      <div class="standings-hero__heading">
+        <img src="logo-ffa-mark.png" alt="Fighting Fury League">
+        <div><p class="eyebrow">Fighting Fury League - Season 3</p><h1>Calendario</h1><p>Proximos enfrentamientos y partidas programadas.</p></div>
+      </div>
+    </div>
+  </header>
+  <main class="container schedule-section">
+    <section class="schedule-board" aria-labelledby="schedule-title">
+      <div class="schedule-board__heading"><div><p class="eyebrow">Partidas programadas</p><h2 id="schedule-title">Proximos matches</h2></div><label class="schedule-filter">Liga<select id="scheduleLeague"><option value="all">Todas</option><option value="master">Master</option><option value="diamond">Diamante</option></select></label></div>
+      <div id="scheduleList" class="schedule-list" aria-live="polite"></div>
+    </section>
+  </main>
+  <script src="tournament-api.js"></script>
+  <script src="calendario.js"></script>
+</body>
+</html>

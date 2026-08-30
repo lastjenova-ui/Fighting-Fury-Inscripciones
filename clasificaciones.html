@@ -18,6 +18,7 @@
         <a class="site-nav__link" href="index.html">Inscripciones</a>
         <a class="site-nav__link is-active" href="clasificaciones.html" aria-current="page">Clasificaciones</a>
         <a class="site-nav__link" href="finales.html">Finales</a>
+        <a class="site-nav__link" href="calendario.html">Calendario</a>
       </nav>
       <div class="standings-hero__heading">
         <img src="logo-ffa-mark.png" alt="Fighting Fury League">
@@ -28,6 +29,7 @@
         </div>
       </div>
     </div>
+    <p id="standingsMessage" class="standings-message" role="status" aria-live="polite"></p>
   </header>
 
   <main class="container league-section" aria-labelledby="league-title">
@@ -54,6 +56,7 @@
     </section>
   </main>
 
+  <script src="tournament-api.js"></script>
   <script src="standings.js"></script>
 </body>
 </html>

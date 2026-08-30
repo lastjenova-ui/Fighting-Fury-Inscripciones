@@ -208,7 +208,7 @@ h1 {
 
 .hero__stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 18px;
 }
@@ -224,26 +224,6 @@ h1 {
 .stat-card strong,
 .counter-card strong {
   font-family: "Orbitron", sans-serif;
-}
-
-.stat-card--price strong{
-  display:flex;
-  align-items:flex-end;
-  gap:.4rem;
-  color:var(--accent);
-  font-size:1.35rem;
-}
-
-.stat-card--price strong small{
-  font-size:.72rem;
-  color:var(--warning);
-  font-family:"Barlow",sans-serif;
-}
-
-.stat-card--price p{
-  margin:8px 0 0;
-  color:var(--muted);
-  font-size:.82rem;
 }
 
 .stat-card__label,
@@ -511,6 +491,69 @@ tbody tr:hover {
   padding-bottom: 48px;
 }
 
+.schedule-section {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 48px;
+}
+
+.schedule-board {
+  padding: 28px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255, 49, 95, 0.08), transparent 32%), var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.schedule-board__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.schedule-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.schedule-filter select {
+  min-width: 150px;
+  padding: 9px 12px;
+  border: 1px solid rgba(184, 191, 209, .25);
+  border-radius: 10px;
+  color: var(--text);
+  background: rgba(9, 13, 23, .9);
+  font: inherit;
+}
+
+.schedule-list { display: grid; gap: 10px; }
+
+.schedule-match {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid rgba(184, 191, 209, .14);
+  border-left: 3px solid var(--primary);
+  border-radius: 14px;
+  background: rgba(7, 10, 18, .6);
+}
+
+.schedule-match__league,
+.schedule-match__phase { display: block; }
+.schedule-match__league { color: var(--primary); font-family: "Orbitron", sans-serif; font-size: .72rem; }
+.schedule-match__phase, .schedule-match time { color: var(--muted); font-size: .88rem; }
+.schedule-match time { text-align: right; }
+.schedule-match strong { text-align: center; }
+.schedule-match strong i { color: var(--muted); font-style: normal; font-weight: 400; }
+.schedule-empty { margin: 0; padding: 24px 0; color: var(--muted); text-align: center; }
+
 .finals-board {
   position: relative;
   overflow: hidden;
@@ -624,9 +667,27 @@ tbody tr:hover {
 }
 
 .bracket-match__players span {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   padding: 10px 12px;
   font-weight: 600;
+}
+
+.bracket-match__players b {
+  color: #21e796;
+}
+
+.bracket-match__players .is-winner {
+  color: #dffff4;
+  background: rgba(25, 217, 139, 0.1);
+}
+
+.bracket-message {
+  margin: 0;
+  padding: 30px 0;
+  color: var(--muted);
+  text-align: center;
 }
 
 .bracket-match__players span + span {
@@ -765,9 +826,8 @@ tbody tr:hover {
 }
 
 .league-board__identity img {
-  width: auto;
-  height: 90px;
-  max-width: 100%;
+  width: min(100%, 290px);
+  max-height: 74px;
   object-fit: contain;
   object-position: left center;
 }
@@ -829,6 +889,21 @@ tbody tr:hover {
 
 .standings-table td:nth-child(2) {
   font-weight: 600;
+}
+
+.standings-table__empty,
+.standings-message {
+  color: var(--muted);
+}
+
+.standings-table__empty {
+  text-align: center !important;
+  font-weight: 400 !important;
+}
+
+.standings-message {
+  min-height: 20px;
+  margin: -8px 0 16px;
 }
 
 .standing-row {
@@ -919,7 +994,8 @@ tbody tr:hover {
 
   .league-section__heading,
   .league-board__identity,
-  .finals-board__heading {
+  .finals-board__heading,
+  .schedule-board__heading {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -969,6 +1045,16 @@ tbody tr:hover {
     grid-template-columns: 1fr;
   }
 
+  .schedule-board { padding: 20px; }
+
+  .schedule-match {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .schedule-match strong,
+  .schedule-match time { text-align: left; }
+
   .groups-grid {
     grid-template-columns: 1fr;
   }
@@ -984,29 +1070,4 @@ tbody tr:hover {
     padding: 13px 12px;
     font-size: 0.95rem;
   }
-}
-/* ==============================
-   Recordatorio de comprobante
-============================== */
-
-.payment-reminder{
-  margin-top:18px;
-  padding:14px 16px;
-  border-radius:14px;
-  border:1px solid rgba(255,184,77,.35);
-  background:rgba(255,184,77,.08);
-}
-
-.payment-reminder strong{
-  display:block;
-  margin-bottom:8px;
-  color:#ffb84d;
-  font-family:"Orbitron",sans-serif;
-  font-size:.85rem;
-}
-
-.payment-reminder p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.5;
 }
