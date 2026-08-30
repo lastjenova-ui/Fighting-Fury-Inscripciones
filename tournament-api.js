@@ -1,4 +1,4 @@
-const TOURNAMENT_API_URL = "https://script.google.com/macros/s/AKfycbyLwY8_7EGpI7K4eEJ_WVfMjZeEmGi6WhUgPbi8GgFmzSTb3jLACTZNf5Dby4p3dJoU/exec";
+const TOURNAMENT_API_URL = "https://script.google.com/macros/s/AKfycbyOpI-cPFlS5Qgfmfk7yXVGHHp5AxLbWaF3LRpMdMFS3jIqpkWPgtLKRYjRrNQ8qUJS/exec";
 
 async function fetchTournamentData() {
   const response = await fetch(`${TOURNAMENT_API_URL}?action=tournament`, { cache: "no-store" });
