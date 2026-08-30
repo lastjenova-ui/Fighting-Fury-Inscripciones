@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tournament = await fetchTournamentData();
     container.innerHTML = `<div class="bracket">${tournament.finals.master.map(renderRound).join("")}</div>`;
   } catch (error) {
-    container.innerHTML = '<p class="bracket-message">El bracket aparecera al cargar los grupos de Master.</p>';
+    container.innerHTML = `<p class="bracket-message">No se pudo cargar el bracket: ${escapeHtml(error.message)}</p>`;
   }
 });
 

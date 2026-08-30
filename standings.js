@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderLeague("master", tournament.standings.master);
     renderLeague("diamond", tournament.standings.diamond);
   } catch (error) {
-    document.getElementById("standingsMessage").textContent = "Las clasificaciones se publicaran cuando se asignen los grupos y resultados.";
+    document.getElementById("standingsMessage").textContent = `No se pudieron cargar las clasificaciones: ${error.message}`;
   }
 });
 

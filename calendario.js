@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     scheduledMatches = (await fetchTournamentData()).schedule;
     renderSchedule();
   } catch (error) {
-    document.getElementById("scheduleList").innerHTML = '<p class="schedule-empty">El calendario aparecera cuando se programen resultados en Google Sheets.</p>';
+    document.getElementById("scheduleList").innerHTML = `<p class="schedule-empty">No se pudo cargar el calendario: ${escapeHtml(error.message)}</p>`;
   }
 });
 
