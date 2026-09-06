@@ -38,6 +38,7 @@
       <div class="league-tabs" role="tablist" aria-label="Seleccionar liga">
         <button class="league-tab is-active" id="diamondTab" type="button" role="tab" aria-selected="true" aria-controls="diamondLeague" data-league-tab="diamond">Liga Diamante</button>
         <button class="league-tab" id="masterTab" type="button" role="tab" aria-selected="false" aria-controls="masterLeague" data-league-tab="master">Liga Master</button>
+        <button class="league-tab" id="platinumTab" type="button" role="tab" aria-selected="false" aria-controls="platinumLeague" data-league-tab="platinum">Liga Platino</button>
       </div>
     </div>
 
@@ -53,6 +54,13 @@
       <div class="league-board__identity"><img src="liga-diamante.png" alt="Liga Diamante"><p>Round robin - Clasificacion y ascenso</p></div>
       <div id="diamondGroups" class="groups-grid" aria-live="polite"></div>
       <div class="league-legend" aria-label="Estados de clasificacion de Liga Diamante"><span><i class="legend-dot legend-dot--qualify"></i>Asciende a Master</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece en Diamante</span><span><i class="legend-dot legend-dot--drop"></i>Desciende a Platino</span></div>
+    </section>
+
+    <section class="league-board league-board--platinum" id="platinumLeague" role="tabpanel" aria-labelledby="platinumTab" data-league-panel="platinum" hidden>
+      <img class="league-board__watermark" src="platino-emblem.png" alt="" aria-hidden="true">
+      <div class="league-board__identity"><img src="liga-platino.png" alt="Liga Platino"><p>Round robin - Clasificacion y ascenso</p></div>
+      <div id="platinumGroups" class="groups-grid" aria-live="polite"></div>
+      <div class="league-legend" aria-label="Estados de clasificacion de Liga Platino"><span><i class="legend-dot legend-dot--qualify"></i>Asciende a Diamante</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece en Platino</span></div>
     </section>
   </main>
 

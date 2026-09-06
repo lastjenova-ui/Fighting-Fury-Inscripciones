@@ -801,6 +801,12 @@ tbody tr:hover {
   background: linear-gradient(135deg, rgba(241, 78, 255, 0.1), transparent 34%), linear-gradient(145deg, rgba(25, 12, 28, 0.98), rgba(24, 14, 30, 0.92));
 }
 
+.league-board--platinum {
+  --league-color: #16c8f5;
+  border-color: rgba(22, 200, 245, 0.32);
+  background: linear-gradient(135deg, rgba(22, 200, 245, 0.12), transparent 34%), linear-gradient(145deg, rgba(8, 23, 35, 0.98), rgba(10, 29, 42, 0.92));
+}
+
 .league-board__watermark {
   position: absolute;
   top: 50%;

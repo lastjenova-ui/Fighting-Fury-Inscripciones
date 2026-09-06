@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tournament = await fetchTournamentData();
     renderLeague("master", tournament.standings.master);
     renderLeague("diamond", tournament.standings.diamond);
+    renderLeague("platinum", tournament.standings.platinum);
   } catch (error) {
     document.getElementById("standingsMessage").textContent = `No se pudieron cargar las clasificaciones: ${error.message}`;
   }
@@ -17,7 +18,7 @@ function bindLeagueTabs() {
   }));
 }
 
-function renderLeague(league, groups) { document.getElementById(`${league}Groups`).innerHTML = groups.map(renderGroupTable).join(""); }
+function renderLeague(league, groups) { document.getElementById(`${league}Groups`).innerHTML = (groups || []).map(renderGroupTable).join(""); }
 
 function renderGroupTable(group) {
   const rows = group.players.length ? group.players.map((player) => `<tr class="standing-row standing-row--${player.status}"><td>${player.position}</td><td>${escapeHtml(player.nickname)}</td><td>${player.played}</td><td>${player.wins}</td><td>${player.losses}</td><td><span class="standing-status"><i></i><span class="sr-only">${getStatusLabel(player.status)}</span></span></td></tr>`).join("") : '<tr><td colspan="6" class="standings-table__empty">Sin jugadores asignados</td></tr>';
