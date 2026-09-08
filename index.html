@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Inscripciones oficiales de Fighting Fury League para torneos y temporadas competitivas.">
+  <meta name="description" content="Estado de inscripciones y roster oficial de Fighting Fury League.">
   <title>Fighting Fury League | Inscripciones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,9 +28,9 @@
         <div class="brand-copy">
           <p class="eyebrow">Fighting Fury League</p>
           <img class="brand-wordmark" src="logo-ffa-c1.png" alt="Logo Fighting Fury League en blanco">
-          <h1>Página Oficial de Inscripciones</h1>
+          <h1>Roster Oficial</h1>
           <p class="hero__copy">
-            Reserva tu lugar para la próxima batalla, sube tu comprobante y sigue tu estado competitivo en tiempo real.
+            Consulta a los jugadores inscritos y sigue la temporada competitiva de Fighting Fury League.
           </p>
         </div>
       </div>
@@ -48,7 +48,14 @@
   </header>
 
   <main class="container layout">
-    <section class="panel form-panel" aria-labelledby="form-title">
+    <section class="panel closed-panel" aria-labelledby="closed-title">
+      <div class="closed-panel__icon" aria-hidden="true">!</div>
+      <p class="eyebrow">Registro oficial</p>
+      <h2 id="closed-title">LAS INSCRIPCIONES ESTÁN CERRADAS</h2>
+      <p>Gracias por el interés en Fighting Fury League. El periodo de registro ha finalizado; puedes consultar el roster de jugadores inscritos.</p>
+    </section>
+
+    <section class="panel form-panel" aria-labelledby="form-title" hidden>
       <div class="panel__heading">
         <p class="eyebrow">Registro oficial</p>
         <h2 id="form-title">Formulario de Inscripción</h2>
