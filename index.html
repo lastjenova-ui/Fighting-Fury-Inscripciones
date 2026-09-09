@@ -61,50 +61,9 @@
           <p class="eyebrow">Eliminación directa</p>
           <h2 id="brackets-title">Llaves del torneo</h2>
         </div>
-        <p>Consulta los cuatro cuadros clasificatorios. Los participantes y resultados se publicarán al cerrar la fase de grupos.</p>
+        <p>Cuatro llaves de 16 jugadores con doble eliminación. Desliza horizontalmente para ver cada cuadro completo.</p>
       </div>
-
-      <div class="home-brackets__grid">
-        <article class="mini-bracket" aria-labelledby="bracket-a-title">
-          <header class="mini-bracket__header"><span>Llave 01</span><h3 id="bracket-a-title">FFL Pool A <small>Viernes 11 Sep · 8:00 PM</small></h3></header>
-          <div class="mini-bracket__round mini-bracket__round--opening">
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-          </div>
-          <div class="mini-bracket__round mini-bracket__round--semi"><div class="mini-match mini-match--pending"><span>Ganador M1</span><span>Ganador M2</span></div></div>
-          <div class="mini-bracket__round mini-bracket__round--final"><div class="mini-champion">Campeón<br><strong>Por definir</strong></div></div>
-        </article>
-
-        <article class="mini-bracket" aria-labelledby="bracket-b-title">
-          <header class="mini-bracket__header"><span>Llave 02</span><h3 id="bracket-b-title">FFL Pool B <small>Viernes 11 Sep · 8:00 PM</small></h3></header>
-          <div class="mini-bracket__round mini-bracket__round--opening">
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-          </div>
-          <div class="mini-bracket__round mini-bracket__round--semi"><div class="mini-match mini-match--pending"><span>Ganador M1</span><span>Ganador M2</span></div></div>
-          <div class="mini-bracket__round mini-bracket__round--final"><div class="mini-champion">Campeón<br><strong>Por definir</strong></div></div>
-        </article>
-
-        <article class="mini-bracket" aria-labelledby="bracket-c-title">
-          <header class="mini-bracket__header"><span>Llave 03</span><h3 id="bracket-c-title">FFL Pool C <small>Sábado 12 Sep · 8:00 PM</small></h3></header>
-          <div class="mini-bracket__round mini-bracket__round--opening">
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-          </div>
-          <div class="mini-bracket__round mini-bracket__round--semi"><div class="mini-match mini-match--pending"><span>Ganador M1</span><span>Ganador M2</span></div></div>
-          <div class="mini-bracket__round mini-bracket__round--final"><div class="mini-champion">Campeón<br><strong>Por definir</strong></div></div>
-        </article>
-
-        <article class="mini-bracket" aria-labelledby="bracket-d-title">
-          <header class="mini-bracket__header"><span>Llave 04</span><h3 id="bracket-d-title">FFL Pool D <small>Sábado 12 Sep · 8:00 PM</small></h3></header>
-          <div class="mini-bracket__round mini-bracket__round--opening">
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-            <div class="mini-match"><span>Por definir</span><span>Por definir</span></div>
-          </div>
-          <div class="mini-bracket__round mini-bracket__round--semi"><div class="mini-match mini-match--pending"><span>Ganador M1</span><span>Ganador M2</span></div></div>
-          <div class="mini-bracket__round mini-bracket__round--final"><div class="mini-champion">Campeón<br><strong>Por definir</strong></div></div>
-        </article>
-      </div>
+      <div id="poolsBrackets" class="pools-brackets" aria-live="polite"></div>
     </section>
 
     <section class="panel form-panel" aria-labelledby="form-title" hidden>
@@ -213,6 +172,7 @@
     </section>
   </main>
 
+  <script src="pools.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
