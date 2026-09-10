@@ -1,48 +1,19 @@
 /*
   EDICIÓN MANUAL DE LOS POOLS
-  Los jugadores se colocan en "players" siguiendo las posiciones
-  necesarias para que el bracket coincida con el cuadro original.
+  Doble eliminación · 16 jugadores por pool
 
-  Pool A configurado con los 16 jugadores del bracket.
-  Pools B, C y D quedan pendientes.
+  Los jugadores de cada pool están ordenados en "players"
+  para que los enfrentamientos iniciales coincidan exactamente
+  con el bracket original de cada imagen.
 */
 
 const FFL_POOLS = [
+  // ============================================================
+  // POOL A
+  // ============================================================
   {
     name: "FFL Pool A",
     schedule: "Viernes 11 Sep · 8:00 PM",
-
-    /*
-      IMPORTANTE:
-      Este orden está hecho específicamente para que los
-      enfrentamientos iniciales coincidan con el bracket original.
-
-      Posiciones del array:
-
-      players[0]  = FILI-RZ
-      players[15] = WOLRAB
-
-      players[7]  = Mudfrieza
-      players[8]  = SKZ_Ulrik
-
-      players[3]  = 200decilantro
-      players[12] = fragminn
-
-      players[4]  = ado_Mc
-      players[11] = tonyindiegamer
-
-      players[1]  = Red_Maverick
-      players[14] = ItsWifaner
-
-      players[6]  = Highwind
-      players[9]  = Jenn
-
-      players[2]  = Limestone
-      players[13] = Kirimanyaro
-
-      players[5]  = Monoguitar
-      players[10] = P4TITO
-    */
 
     players: [
       "FILI-RZ",          // 0
@@ -66,27 +37,97 @@ const FFL_POOLS = [
     slots: {}
   },
 
+
+  // ============================================================
+  // POOL B
+  // ============================================================
   {
     name: "FFL Pool B",
     schedule: "Viernes 11 Sep · 8:00 PM",
-    players: Array(16).fill("Por definir"),
+
+    players: [
+      "Px zaito240",      // 0
+      "Nueve",            // 1
+      "PezKoito",         // 2
+      "Sirxy",            // 3
+      "Sharkwarrior059",  // 4
+      "Gleashy",          // 5
+      "Juan_mono",        // 6
+      "Kendernyu",        // 7
+      "Nozarashi",        // 8
+      "WILLAR",           // 9
+      "Ratamaraña",       // 10
+      "Skyresk",           // 11
+      "Pipepala",         // 12
+      "Juanch0666",       // 13
+      "Cigne",            // 14
+      "Yamibakura"        // 15
+    ],
+
     slots: {}
   },
 
+
+  // ============================================================
+  // POOL C
+  // ============================================================
   {
     name: "FFL Pool C",
     schedule: "Sábado 12 Sep · 8:00 PM",
-    players: Array(16).fill("Por definir"),
+
+    players: [
+      "JUAN2425",          // 0
+      "Predator_X",        // 1
+      "MrDarkan",          // 2
+      "ioRoS",             // 3
+      "ACP|Rockmegamam",   // 4
+      "Joker-I-9029",      // 5
+      "ElFabs",            // 6
+      "Kyota",             // 7
+      "chunchumaru17",     // 8
+      "Noscas",            // 9
+      "Ras al Ghυl",       // 10
+      "Orregoso",          // 11
+      "santOS",             // 12
+      "Trp_cali",          // 13
+      "NeoArcade",         // 14
+      "KidPambe"           // 15
+    ],
+
     slots: {}
   },
 
+
+  // ============================================================
+  // POOL D
+  // ============================================================
   {
     name: "FFL Pool D",
     schedule: "Sábado 12 Sep · 8:00 PM",
-    players: Array(16).fill("Por definir"),
+
+    players: [
+      "JustShadow",        // 0
+      "Deadmano",          // 1
+      "Josluba186",        // 2
+      "ShakaxX",           // 3
+      "jvegagir",          // 4
+      "Trirziel",          // 5
+      "QUIEBRACUCAS",      // 6
+      "Px_Raging_DemoN",   // 7
+      "Yashiro18",         // 8
+      "Touiji",             // 9
+      "Larry Capija",      // 10
+      "Saiga2103",         // 11
+      "BLACKJUNGLE",       // 12
+      "Soufiane Bencok",   // 13
+      "Hawkwolfryubat11",  // 14
+      "RyuMasta"           // 15
+    ],
+
     slots: {}
   }
 ];
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("poolsBrackets");
@@ -96,23 +137,29 @@ document.addEventListener("DOMContentLoaded", () => {
   container.innerHTML = FFL_POOLS.map(renderPool).join("");
 });
 
+
 function renderPool(pool) {
   const players =
     pool.players.length === 16
       ? pool.players
       : Array(16).fill("Por definir");
 
-  /*
-    ORDEN DE LOS ENFRENTAMIENTOS INICIALES
 
-    W1: players[0]  vs players[15]
-    W2: players[7]  vs players[8]
-    W3: players[3]  vs players[12]
-    W4: players[4]  vs players[11]
-    W5: players[1]  vs players[14]
-    W6: players[6]  vs players[9]
-    W7: players[2]  vs players[13]
-    W8: players[5]  vs players[10]
+  /*
+    ============================================================
+    ROUND 1
+    ============================================================
+
+    La estructura del bracket utiliza estas posiciones:
+
+    W1 = players[0]  vs players[15]
+    W2 = players[7]  vs players[8]
+    W3 = players[3]  vs players[12]
+    W4 = players[4]  vs players[11]
+    W5 = players[1]  vs players[14]
+    W6 = players[6]  vs players[9]
+    W7 = players[2]  vs players[13]
+    W8 = players[5]  vs players[10]
   */
 
   const opening = [
@@ -125,6 +172,7 @@ function renderPool(pool) {
     [players[2], players[13]],
     [players[5], players[10]]
   ];
+
 
   const upperRounds = [
     {
@@ -156,6 +204,7 @@ function renderPool(pool) {
       start: 15
     }
   ];
+
 
   const losersRounds = [
     {
@@ -215,10 +264,12 @@ function renderPool(pool) {
     }
   ];
 
+
   return `
     <article class="double-elim-pool">
 
       <header class="double-elim-pool__header">
+
         <div>
           <p class="eyebrow">
             Doble eliminación · 16 jugadores
@@ -232,11 +283,16 @@ function renderPool(pool) {
         <time>
           ${escapePoolHtml(pool.schedule)}
         </time>
+
       </header>
+
 
       <div class="double-elim-scroll">
 
         <div class="double-elim-board">
+
+
+          <!-- BRACKET SUPERIOR -->
 
           <section class="elim-zone">
 
@@ -245,12 +301,17 @@ function renderPool(pool) {
             </h4>
 
             <div class="elim-rounds elim-rounds--upper">
+
               ${upperRounds
                 .map((round) => renderRound(round, pool.slots))
                 .join("")}
+
             </div>
 
           </section>
+
+
+          <!-- BRACKET DE PERDEDORES -->
 
           <section class="elim-zone">
 
@@ -259,12 +320,17 @@ function renderPool(pool) {
             </h4>
 
             <div class="elim-rounds elim-rounds--lower">
+
               ${losersRounds
                 .map((round) => renderRound(round, pool.slots))
                 .join("")}
+
             </div>
 
           </section>
+
+
+          <!-- GRAN FINAL -->
 
           <section class="grand-final">
 
@@ -281,6 +347,7 @@ function renderPool(pool) {
 
           </section>
 
+
         </div>
 
       </div>
@@ -288,6 +355,7 @@ function renderPool(pool) {
     </article>
   `;
 }
+
 
 function pairedPlaceholders(prefix, first, amount) {
   return Array.from(
@@ -298,6 +366,7 @@ function pairedPlaceholders(prefix, first, amount) {
     ]
   );
 }
+
 
 function renderRound(round, slots) {
   return `
@@ -327,6 +396,7 @@ function renderRound(round, slots) {
   `;
 }
 
+
 function renderMatch(players, label) {
   return `
     <div class="elim-match">
@@ -346,6 +416,7 @@ function renderMatch(players, label) {
     </div>
   `;
 }
+
 
 function escapePoolHtml(value) {
   return String(value)
