@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Estado de inscripciones y roster oficial de Fighting Fury League.">
-  <title>Fighting Fury League | Inscripciones</title>
+  <meta name="description" content="Divisiones, grupos y fechas de juego de Fighting Fury League.">
+  <title>Fighting Fury League | Divisiones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
@@ -12,167 +12,61 @@
 </head>
 <body>
   <div class="page-shell"></div>
-  <header class="hero">
-    <div class="hero__backdrop"></div>
-    <div class="container hero__content">
+  <header class="standings-hero">
+    <div class="container">
       <nav class="site-nav" aria-label="Navegación principal">
-        <a class="site-nav__link is-active" href="index.html" aria-current="page">Inscripciones</a>
-        <a class="site-nav__link" href="clasificaciones.html">Clasificaciones</a>
-        <a class="site-nav__link" href="finales.html">Finales</a>
+        <a class="site-nav__link is-active" href="index.html" aria-current="page">Divisiones</a>
         <a class="site-nav__link" href="calendario.html">Calendario</a>
       </nav>
-      <div class="brand-card">
-        <div class="brand-logo" aria-label="Escudo de Fighting Fury League">
-          <img src="logo-ffa-mark.png" alt="Logo Fighting Fury League">
-        </div>
-        <div class="brand-copy">
-          <p class="eyebrow">Fighting Fury League</p>
-          <img class="brand-wordmark" src="logo-ffa-c1.png" alt="Logo Fighting Fury League en blanco">
-          <h1>Roster Oficial</h1>
-          <p class="hero__copy">
-            Consulta a los jugadores inscritos y sigue la temporada competitiva de Fighting Fury League.
-          </p>
-        </div>
-      </div>
-      <div class="hero__stats">
-        <div class="stat-card">
-          <span class="stat-card__label">Temporada</span>
-          <strong>Season 3</strong>
-        </div>
-        <div class="stat-card">
-          <span class="stat-card__label">Juego</span>
-          <strong>Street Fighter 6</strong>
+      <div class="standings-hero__heading">
+        <img src="logo-ffa-mark.png" alt="Fighting Fury League">
+        <div>
+          <p class="eyebrow">Fighting Fury League · Season 3</p>
+          <h1>Divisiones y grupos</h1>
+          <p>Consulta las clasificaciones, los grupos y las fechas programadas de cada ronda.</p>
         </div>
       </div>
     </div>
+    <p id="standingsMessage" class="standings-message" role="status" aria-live="polite"></p>
   </header>
 
-  <main class="container layout">
-    <section class="panel closed-panel" aria-labelledby="closed-title">
-      <div class="closed-panel__icon" aria-hidden="true">!</div>
-      <p class="eyebrow">Registro oficial</p>
-      <h2 id="closed-title">LAS INSCRIPCIONES ESTÁN CERRADAS</h2>
-      <p>Gracias por el interés en Fighting Fury League. El periodo de registro ha finalizado; puedes consultar el roster de jugadores inscritos.</p>
+  <main class="container league-section" aria-labelledby="league-title">
+    <div class="league-section__heading">
+      <div><p class="eyebrow">Temporada competitiva</p><h2 id="league-title">Divisiones</h2></div>
+      <div class="league-tabs" role="tablist" aria-label="Seleccionar división">
+        <button class="league-tab is-active" id="diamondTab" type="button" role="tab" aria-selected="true" aria-controls="diamondLeague" data-league-tab="diamond">Liga Diamante</button>
+        <button class="league-tab" id="masterTab" type="button" role="tab" aria-selected="false" aria-controls="masterLeague" data-league-tab="master">Liga Master</button>
+        <button class="league-tab" id="platinumTab" type="button" role="tab" aria-selected="false" aria-controls="platinumLeague" data-league-tab="platinum">Liga Platino</button>
+      </div>
+    </div>
+
+    <section class="league-board league-board--master" id="masterLeague" role="tabpanel" aria-labelledby="masterTab" data-league-panel="master" hidden>
+      <img class="league-board__watermark" src="master-emblem.png" alt="" aria-hidden="true">
+      <div class="league-board__identity"><img src="liga-master.png" alt="Liga Master"><p>Round robin · Clasificación a la fase final</p></div>
+      <div id="masterRoundDates" class="round-dates" aria-live="polite"></div>
+      <div id="masterGroups" class="groups-grid" aria-live="polite"></div>
+      <div class="league-legend" aria-label="Estados de clasificación de Liga Master"><span><i class="legend-dot legend-dot--qualify"></i>Clasifica a la final</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece</span><span><i class="legend-dot legend-dot--drop"></i>Desciende a Diamante</span></div>
     </section>
 
-    <section class="home-brackets" aria-labelledby="brackets-title">
-      <div class="home-brackets__heading">
-        <div>
-          <p class="eyebrow">Eliminación directa</p>
-          <h2 id="brackets-title">Llaves del torneo</h2>
-        </div>
-        <p>Cuatro llaves de 16 jugadores con doble eliminación. Desliza horizontalmente para ver cada cuadro completo.</p>
-      </div>
-      <div id="poolsBrackets" class="pools-brackets" aria-live="polite"></div>
+    <section class="league-board league-board--diamond is-active" id="diamondLeague" role="tabpanel" aria-labelledby="diamondTab" data-league-panel="diamond">
+      <img class="league-board__watermark" src="diamante-emblem.png" alt="" aria-hidden="true">
+      <div class="league-board__identity"><img src="liga-diamante.png" alt="Liga Diamante"><p>Round robin · Clasificación y ascenso</p></div>
+      <div id="diamondRoundDates" class="round-dates" aria-live="polite"></div>
+      <div id="diamondGroups" class="groups-grid" aria-live="polite"></div>
+      <div class="league-legend" aria-label="Estados de clasificación de Liga Diamante"><span><i class="legend-dot legend-dot--qualify"></i>Asciende a Master</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece en Diamante</span><span><i class="legend-dot legend-dot--drop"></i>Desciende a Platino</span></div>
     </section>
 
-    <section class="panel form-panel" aria-labelledby="form-title" hidden>
-      <div class="panel__heading">
-        <p class="eyebrow">Registro oficial</p>
-        <h2 id="form-title">Formulario de Inscripción</h2>
-        <p>Completa tu ficha de jugador para entrar al ecosistema competitivo de Fighting Fury League.</p>
-      </div>
-
-      <div id="statusMessage" class="alert hidden" role="alert" aria-live="polite"></div>
-
-      <form id="registrationForm" novalidate>
-        <div class="form-grid">
-          <label class="field">
-            <span>Nombre completo *</span>
-            <input id="fullName" name="fullName" type="text" maxlength="100" autocomplete="name" required>
-            <small class="field__error"></small>
-          </label>
-
-          <label class="field">
-            <span>Nick o Gamertag *</span>
-            <input id="nickname" name="nickname" type="text" maxlength="40" autocomplete="nickname" required>
-            <small class="field__error"></small>
-          </label>
-
-          <label class="field">
-            <span>CFN *</span>
-            <input id="cfn" name="cfn" type="text" maxlength="30" required>
-            <small class="field__error"></small>
-          </label>
-
-          <label class="field">
-            <span>Número celular *</span>
-            <input id="phone" name="phone" type="tel" inputmode="numeric" maxlength="20" required>
-            <small class="field__error"></small>
-          </label>
-
-          <label class="field field--full">
-            <span>Equipo competitivo</span>
-            <input id="team" name="team" type="text" maxlength="60">
-            <small class="field__error"></small>
-          </label>
-
-          <label class="field field--full">
-            <span>Comprobante de pago *</span>
-            <input id="receipt" name="receipt" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required>
-            <small class="field__hint">Formatos permitidos: JPG, JPEG, PNG, WEBP. Máximo 5 MB.</small>
-            <small class="field__error"></small>
-          </label>
-        </div>
-
-        <div id="previewWrapper" class="preview hidden">
-          <img id="previewImage" alt="Vista previa del comprobante">
-        </div>
-
-        <div class="form-actions">
-          <button id="submitButton" class="button button--primary" type="submit">
-            <span class="button__label">Registrar inscripción</span>
-            <span class="button__loader hidden"></span>
-          </button>
-          <p class="form-note">Tu registro entra en revisión y aparece en la tabla pública con estado inicial pendiente.</p>
-        </div>
-      </form>
-    </section>
-
-    <section class="panel list-panel" aria-labelledby="list-title">
-      <div class="panel__heading panel__heading--inline">
-        <div>
-          <p class="eyebrow">Roster público</p>
-          <h2 id="list-title">Jugadores Confirmados</h2>
-        </div>
-        <div class="counter-card">
-          <span>Total en roster</span>
-          <strong id="totalCount">0</strong>
-        </div>
-      </div>
-
-      <div class="search-grid">
-        <label class="field">
-          <span>Buscar por Nick</span>
-          <input id="searchNickname" type="search" placeholder="Ej. RyuMaster">
-        </label>
-        <label class="field">
-          <span>Buscar por CFN</span>
-          <input id="searchCfn" type="search" placeholder="Ej. CFN-001">
-        </label>
-      </div>
-
-      <div class="table-shell">
-        <table>
-          <thead>
-            <tr>
-              <th>Nick</th>
-              <th>CFN</th>
-              <th>Equipo</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody id="playersTableBody"></tbody>
-        </table>
-      </div>
-
-      <div id="emptyState" class="empty-state hidden">
-        No hay resultados para la búsqueda actual.
-      </div>
+    <section class="league-board league-board--platinum" id="platinumLeague" role="tabpanel" aria-labelledby="platinumTab" data-league-panel="platinum" hidden>
+      <img class="league-board__watermark" src="platino-emblem.png" alt="" aria-hidden="true">
+      <div class="league-board__identity"><img src="liga-platino.png" alt="Liga Platino"><p>Round robin · Clasificación y ascenso</p></div>
+      <div id="platinumRoundDates" class="round-dates" aria-live="polite"></div>
+      <div id="platinumGroups" class="groups-grid" aria-live="polite"></div>
+      <div class="league-legend" aria-label="Estados de clasificación de Liga Platino"><span><i class="legend-dot legend-dot--qualify"></i>Asciende a Diamante</span><span><i class="legend-dot legend-dot--playoff"></i>Play-offs</span><span><i class="legend-dot legend-dot--stay"></i>Permanece en Platino</span></div>
     </section>
   </main>
 
-  <script src="pools.js"></script>
-  <script src="script.js"></script>
+  <script src="round-dates.js"></script>
+  <script src="tournament-api.js"></script>
+  <script src="standings.js"></script>
 </body>
 </html>

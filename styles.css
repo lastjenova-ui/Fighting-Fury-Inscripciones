@@ -1131,6 +1131,31 @@ tbody tr:hover {
   color: var(--muted);
 }
 
+.round-dates {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 24px;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--league-color) 38%, transparent);
+  border-radius: 16px;
+  background: rgba(7, 10, 18, 0.5);
+}
+
+.round-dates__heading h3 { margin: 4px 0 6px; font-family: "Orbitron", sans-serif; font-size: 1rem; }
+.round-dates__heading p:not(.eyebrow) { margin: 0; color: var(--muted); }
+
+.round-dates__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.round-dates__group { padding: 12px; border-radius: 12px; background: rgba(184, 191, 209, 0.07); }
+.round-dates__group h4 { margin: 0 0 8px; color: var(--league-color); font: 700 0.76rem "Orbitron", sans-serif; letter-spacing: 0.06em; }
+.round-dates__group ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.88rem; }
+.round-dates__group li::before { content: "•"; margin-right: 6px; color: var(--league-color); }
+
 .groups-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1362,6 +1387,10 @@ tbody tr:hover {
     grid-template-columns: 1fr;
   }
 
+  .round-dates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .league-board__watermark {
     width: 76%;
     right: -90px;
@@ -1373,4 +1402,8 @@ tbody tr:hover {
     padding: 13px 12px;
     font-size: 0.95rem;
   }
+}
+
+@media (max-width: 480px) {
+  .round-dates__grid { grid-template-columns: 1fr; }
 }
