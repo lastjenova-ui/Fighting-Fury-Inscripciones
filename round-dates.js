@@ -8,28 +8,28 @@ const FFL_ROUND_DATES = {
   master: {
     title: "Fechas de rondas · Liga Master",
     groups: {
-      A: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      B: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      C: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      D: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"]
+      A: ["Ronda · FINALIZADA"],
+      B: ["Ronda · FINALIZADA"],
+      C: ["Ronda · DE 28 de Septimebre a 4 de Octubre "],
+      D: ["Ronda · DE 28 de Septimebre a 4 de Octubre "]
     }
   },
   diamond: {
     title: "Fechas de rondas · Liga Diamante",
     groups: {
-      A: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      B: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      C: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      D: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"]
+      A: ["Ronda 1 · Por confirmar"],
+      B: ["Ronda 1 · Por confirmar"],
+      C: ["Ronda 1 · Por confirmar"],
+      D: ["Ronda 1 · Por confirmar"]
     }
   },
   platinum: {
     title: "Fechas de rondas · Liga Platino",
     groups: {
-      A: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      B: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      C: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"],
-      D: ["Ronda 1 · Por confirmar", "Ronda 2 · Por confirmar", "Ronda 3 · Por confirmar"]
+      A: ["Ronda 1 · Por confirmar"],
+      B: ["Ronda 1 · Por confirmar"],
+      C: ["Ronda 1 · Por confirmar"],
+      D: ["Ronda 1 · Por confirmar"]
     }
   }
 };
