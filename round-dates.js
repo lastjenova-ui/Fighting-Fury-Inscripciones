@@ -8,28 +8,28 @@ const FFL_ROUND_DATES = {
   master: {
     title: "Fechas de rondas · Liga Master",
     groups: {
-      A: ["Ronda · FINALIZADA"],
-      B: ["Ronda · FINALIZADA"],
-      C: ["Ronda · DE 28 de Septimebre a 4 de Octubre "],
-      D: ["Ronda · DE 28 de Septimebre a 4 de Octubre "]
+      A: ["Ronda · Por confirmar"],
+      B: ["Ronda · Por confirmar"],
+      C: ["Ronda · Por confirmar"],
+      D: ["Ronda · Por confirmar"]
     }
   },
   diamond: {
     title: "Fechas de rondas · Liga Diamante",
     groups: {
-      A: ["Ronda 1 · Por confirmar"],
-      B: ["Ronda 1 · Por confirmar"],
-      C: ["Ronda 1 · Por confirmar"],
-      D: ["Ronda 1 · Por confirmar"]
+      A: ["Ronda  · Por confirmar"],
+      B: ["Ronda  · Por confirmar"],
+      C: ["Ronda  · Por confirmar"],
+      D: ["Ronda  · Por confirmar"]
     }
   },
   platinum: {
     title: "Fechas de rondas · Liga Platino",
     groups: {
-      A: ["Ronda 1 · Por confirmar"],
-      B: ["Ronda 1 · Por confirmar"],
-      C: ["Ronda 1 · Por confirmar"],
-      D: ["Ronda 1 · Por confirmar"]
+      A: ["Ronda  · FINALIZADA"],
+      B: ["Ronda  · FINALIZADA"],
+      C: ["Ronda  · DE 28 de Septiembre a 4 de Octubre"],
+      D: ["Ronda  · DE 28 de Septiembre a 4 de Octubre"]
     }
   }
 };
